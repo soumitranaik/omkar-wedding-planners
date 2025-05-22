@@ -8,7 +8,7 @@ export function BackgroundGradientCards() {
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-10 mt-20" id="about">
       <div>
-        <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 text-left bg-white border-solid border-1 border-pink-200">
+        <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 text-left bg-white border-solid border-1 border-red-200">
           <Image
             src="/images/decoration.jpg"
             alt="jordans"
@@ -16,7 +16,7 @@ export function BackgroundGradientCards() {
             width="800"
             className="object-contain rounded-md"
           />
-          <p className="text-base sm:text-xl text-pink-900 mt-4 mb-4 ">
+          <p className="text-base sm:text-xl text-red-900 mt-4 mb-4 ">
             Wedding Decoration
           </p>
 
@@ -39,7 +39,7 @@ export function BackgroundGradientCards() {
             width="400"
             className="object-contain rounded-md"
           />
-          <p className="text-base sm:text-xl text-pink-900 mt-4 mb-4">
+          <p className="text-base sm:text-xl text-red-900 mt-4 mb-4">
             Catering
           </p>
 
@@ -62,7 +62,7 @@ export function BackgroundGradientCards() {
             width="400"
             className="object-contain rounded-md"
           />
-          <p className="text-base sm:text-xl text-pink-900 mt-4 mb-4 ">
+          <p className="text-base sm:text-xl text-red-900 mt-4 mb-4 ">
             Photography & Videography
           </p>
 

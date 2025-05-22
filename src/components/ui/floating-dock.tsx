@@ -70,7 +70,7 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-800 "
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-red-800 "
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
@@ -102,7 +102,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-pink-800 px-4 pb-3 md:flex",
+        "mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-red-800 px-4 pb-3 md:flex",
         className,
       )}
     >
@@ -181,7 +181,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-rose-700 bg-rose-800 px-2 py-0.5 text-xs whitespace-pre text-neutral-100   "
+              className="absolute -top-8 left-1/2 w-fit rounded-md border border-red-700 bg-red-800 px-2 py-0.5 text-xs whitespace-pre text-neutral-100   "
             >
               {title}
             </motion.div>

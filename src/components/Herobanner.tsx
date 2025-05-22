@@ -56,7 +56,7 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mx-auto max-w-xl py-4 text-center text-xl font-normal text-neutral-100"
           >
-            Goa's Trusted Hindu Wedding Planners & Decorators – Traditional to
+            Goa's Most Trusted Wedding Planners & Decorators – Traditional to
             Grand Celebrations
           </motion.p>
           <motion.div
@@ -72,7 +72,7 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <button className="w-60 transform rounded-lg bg-pink-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-pink-900">
+            <button className="w-60 transform rounded-lg bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900">
               Explore Features
             </button>
             <button className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 ">
@@ -92,7 +92,7 @@ export function HeroSectionOne() {
               duration: 0.3,
               delay: 1.2,
             }}
-            className="relative z-10 mt-20 rounded-3xl border border-rose-800 bg-rose-50 p-4 shadow-md"
+            className="relative z-10 mt-20 rounded-3xl border border-red-800 bg-rose-50 p-4 shadow-md"
           >
             <div className="w-full h-auto overflow-hidden rounded-xl px-8 md:px-16 py-20 border bg-white border-rose-50 text-center">
               <div className="flex flex-col items-center justify-center"><h2 className="text-4xl font-bold py-4 text-neutral-800">About Us</h2>
@@ -109,7 +109,7 @@ export function HeroSectionOne() {
                 a stress-free experience from the first consultation to the
                 final farewell. Your dream celebration starts with Omkar's Wedding Planners.
               </p>
-              <button className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-pink-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-pink-900 ">
+              <button className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900 ">
                 <FiPhoneCall /> Call Now
               </button>
               </div>

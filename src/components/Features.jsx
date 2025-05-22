@@ -56,7 +56,7 @@ export const WeddingFeatures = () => {
       id="features"
     >
       <div className="container absolute inset-x-0 bottom-0 h-px w-full bg-pink-200/80 flex text-center mx-auto">
-        <div className="  absolute mx-auto h-px w-90 bg-gradient-to-r from-transparent via-pink-800 to-transparent" />
+        <div className="  absolute mx-auto h-px w-90 bg-gradient-to-r from-transparent via-red-800 to-transparent" />
       </div>
       <div className="container py-16 px-8 md:px-32 my-32">
         <div className="max-w-7xl mx-auto text-center mb-12">
@@ -70,9 +70,9 @@ export const WeddingFeatures = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 bg-pink-50 py-10 rounded-lg shadow hover:shadow-md transition hover:bg-white"
+              className="p-6 bg-red-50 py-10 rounded-lg shadow hover:shadow-md transition hover:bg-white"
             >
-              <div className="text-pink-800 text-6xl mb-4 flex justify-center">
+              <div className="text-red-700 text-6xl mb-4 flex justify-center">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-800">
