@@ -3,10 +3,12 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { ContactModal } from "./BookNowForm";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -59,9 +61,10 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
-          <button className="rounded-md bg-red-800 px-4 py-2 text-sm font-medium text-white hover:bg-red-900">
+          <button onClick={() => setIsFormOpen(true)} className="rounded-md bg-red-800 px-4 py-2 text-sm font-medium text-white hover:bg-red-900">
             Book Now
           </button>
+          <ContactModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </div>
 
         {/* Mobile menu button */}
