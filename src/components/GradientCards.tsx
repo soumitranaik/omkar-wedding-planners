@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function BackgroundGradientCards() {
   return (
-    <div className="flex flex-col md:flex-row gap-4 mb-10 mt-20" id="about">
+    <div className="flex flex-col md:flex-row gap-4 mb-10 mt-20">
       <div>
         <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 text-left bg-white border-solid border-1 border-red-200">
           <Image

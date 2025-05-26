@@ -61,8 +61,11 @@ export const WeddingFeatures = () => {
       <div className="container py-16 px-8 md:px-32 my-32">
         <div className="max-w-7xl mx-auto text-center mb-12">
           <h2 className="text-4xl font-bold text-neutral-800">Why Choose Us</h2>
-          <p className="mt-4 text-neutral-600">
-            Professional wedding planning tailored to your dream day.
+          <p className="mt-4 text-neutral-600 px-4 md:px-24">
+            All your event related needs & requirements under one roof. From
+            dazzling decor to flawless execution, we handle every detail so you
+            can focus on celebrating. Your vision, our expertise - perfectly
+            aligned for unforgettable moments
           </p>
         </div>
 

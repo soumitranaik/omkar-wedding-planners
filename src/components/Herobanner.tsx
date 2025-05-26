@@ -94,7 +94,7 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mt-20 rounded-3xl border border-red-800 bg-rose-50 p-4 shadow-md"
           >
-            <div className="w-full h-auto overflow-hidden rounded-xl px-8 md:px-16 py-20 border bg-white border-rose-50 text-center">
+            <div className="w-full h-auto overflow-hidden rounded-xl px-8 md:px-16 py-20 border bg-white border-rose-50 text-center" id="about">
               <div className="flex flex-col items-center justify-center"><h2 className="text-4xl font-bold py-4 text-neutral-800">About Us</h2>
               <p className="py-4 text-neutral-800">
                 At Omkar's Wedding Planners, we specialize in creating unforgettable weddings and

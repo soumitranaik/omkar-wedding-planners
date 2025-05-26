@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Lora, Roboto} from "next/font/google";
-import { NavbarMain } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 
@@ -41,7 +41,7 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${playfair.variable} ${roboto.variable}`}
       >
-        <NavbarMain />
+        <Navbar />
         <div className="w-full">{children}</div>
         <Footer />
       </body>
