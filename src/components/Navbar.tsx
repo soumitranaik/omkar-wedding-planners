@@ -132,7 +132,7 @@ export function Navbar() {
             alt="Company Logo"
             width={200}
             height={90}
-            className="h-full object-contain"
+            className="h-full py-1 object-contain"
           />
         </motion.div>
 
@@ -157,7 +157,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <button className="md:hidden">
           <svg
-            className="h-6 w-6"
+            className="h-6 w-6 text-red-800"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -16,6 +16,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   const [selected, setSelected] = useState<Card | null>(null);
   const [lastSelected, setLastSelected] = useState<Card | null>(null);
 
+
   const handleClick = (card: Card) => {
     setLastSelected(selected);
     setSelected(card);
@@ -61,9 +62,10 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 };
 
 const ImageComponent = ({ card, selected }: { card: Card, selected: Card | null }) => {
+  const MotionImage = motion(Image)
   return (
     <div className="h-full w-full">
-      <motion.img
+      <MotionImage
         layoutId={`image-${card.id}-image`}
         src={card.thumbnail}
         height="500"
