@@ -30,7 +30,7 @@ export function FloatingButtons() {
       icon: (
         <IconPhoneCalling className="h-full w-full text-rose-800 " />
       ),
-      href: "tel:082083 05832",
+      href: "tel:9822483117",
     }
   ];
   return (

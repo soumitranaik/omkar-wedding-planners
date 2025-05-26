@@ -169,21 +169,21 @@ const cards = [
     className: "md:col-span-2",
     thumbnail: "/images/entrance-white.jpg",
   },
- 
-  {
+   {
     id: 5,
-    content: <SkeletonPuja />,
-    title: "Puja Samagri",
+    content: <SkeletonScreen />,
+    title: "Large Screen Display",
     className: "md:col-span-2",
-    thumbnail: "/images/puja.jpg",
+    thumbnail: "/images/large-screen.jpg",
   },
   {
     id: 6,
-    content: <SkeletonScreen />,
-    title: "Large Screen Display",
+    content: <SkeletonPuja />,
+    title: "Puja Samagri",
     className: "md:col-span-1",
-    thumbnail: "/images/large-screen.jpg",
+    thumbnail: "/images/puja.jpg",
   },
+
   {
     id: 7,
     content: <SkeletonPyro />,
