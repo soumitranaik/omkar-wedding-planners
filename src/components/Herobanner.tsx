@@ -17,9 +17,9 @@ export function HeroSectionOne() {
         playsInline
         className="absolute top-0 left-0 w-full h-screen object-cover"
       >
-        <source src="/videos/bg-hero.mp4" type="video/mp4" />
+        <source src="/videos/bg-hero.mov" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/50 flex items-center h-screen justify-center"></div>
+      {/* <div className="absolute inset-0 bg-black/50 flex items-center h-screen justify-center"></div> */}
       <div className="relative mx-auto py-10 flex max-w-7xl flex-col items-center justify-center">
         <div className="absolute inset-x-0 bottom-0 h-px w-full bg-pink-200/80 ">
           <div className="absolute mx-auto h-px w-90 bg-gradient-to-r from-transparent via-pink-800 to-transparent" />
