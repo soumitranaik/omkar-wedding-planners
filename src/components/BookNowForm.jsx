@@ -16,16 +16,26 @@ export const ContactModal = ({ isOpen, onClose }) => {
       label: "Photography & Videography",
     },
     {
+      id: "Haldi-Menendi",
+      label: "Haldi & Mehndi",
+    },
+     {
       id: "Pyro-Fireworks",
       label: "Pyro & Fireworks",
     },
+     {
+      id: "Large Screen Display",
+      label: "Large Screen Display",
+    }
   ];
 
   const [formData, setFormData] = useState({
     name: "",
     venue: "",
-    email: "",
-    message: "",
+    phone: "",
+    address: "",
+    services: "",
+    additional: "",
   });
 
   const handleChange = (e) => {
@@ -40,7 +50,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Add form submission logic here
-    setIsOpen(false); // Close modal after submit
+    onClose(); // Close modal after submit
   };
 
   if (!isOpen) return null;
@@ -83,7 +93,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-md font-medium text-gray-700 mb-1"
                 >
                   Name
                 </label>
@@ -101,7 +111,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
               <div>
                 <label
                   htmlFor="venue"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-md font-medium text-gray-700 mb-1"
                 >
                   Venue
                 </label>
@@ -119,15 +129,18 @@ export const ContactModal = ({ isOpen, onClose }) => {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-md font-medium text-gray-700 mb-1"
                 >
                   Phone
                 </label>
                 <input
-                  type="text"
+                  type="tel"
+                  pattern="[0-9]{10}"
                   id="phone"
+                  placeholder="9888888888"
+                  inputMode="tel"
                   name="phone"
-                  value={formData.venue}
+                  value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-300"
                   required
@@ -135,7 +148,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-md font-medium text-gray-700 mb-2">
                   Services
                 </label>
                 <div className="grid grid-cols-2  ">
@@ -147,8 +160,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
                       name="services"
                       value={service.id}
                       onChange={handleChange}
-                      className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none "
-                      required
+                      className="px-4 py-2 border border-gray-300 accent-red-800 rounded-md focus:outline-none "
+                    
                     />
                     <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor={service.id}>{service.label}</label>
                   </div>
@@ -156,21 +169,39 @@ export const ContactModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
+                 <div>
+                <label
+                  htmlFor="address"
+                  className="block text-md font-medium text-gray-700 mb-1"
+                >
+                  Address
+                </label>
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="2"
+                  value={formData.address}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-300"
+                  
+                ></textarea>
+              </div>
+
               <div>
                 <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="additional"
+                  className="block text-md font-medium text-gray-700 mb-1"
                 >
                   Additional Services
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  value={formData.message}
+                  id="additional"
+                  name="additional"
+                  rows="2"
+                  value={formData.additional}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-300"
-                  required
+                  
                 ></textarea>
               </div>
 

@@ -12,7 +12,7 @@ export function Navbar() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
+    setIsScrolled(latest > 100);
   });
 
   const navLinks = [
@@ -148,12 +148,7 @@ export function Navbar() {
               </div>
 
               {/* Overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.5 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setMobileMenuOpen(false)}
-              />
+              
             </motion.div>
           )}
         </AnimatePresence>

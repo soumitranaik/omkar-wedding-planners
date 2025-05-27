@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { div } from "motion/react-client";
 import { BackgroundGradientCards } from "./GradientCards";
 import { FiPhoneCall } from "react-icons/fi";
+import Link from "next/link";
 
 
 export function HeroSectionOne() {
@@ -72,12 +73,12 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <button className="w-60 transform rounded-lg bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900">
+            <Link href={"#features"} className="text-center w-60 transform rounded-lg bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900">
               Explore Features
-            </button>
-            <button className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 ">
+            </Link>
+            <Link href={"tel:9822483117"} className="text-center w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 ">
               Call Now
-            </button>
+            </Link>
           </motion.div>
           <motion.div
             initial={{
@@ -109,9 +110,9 @@ export function HeroSectionOne() {
                 a stress-free experience from the first consultation to the
                 final farewell. Your dream celebration starts with Omkar's Wedding Planners.
               </p>
-              <button className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900 ">
+              <Link href={"tel:9822483117"} className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900 ">
                 <FiPhoneCall /> Call Now
-              </button>
+              </Link>
               </div>
               <BackgroundGradientCards />
             </div>

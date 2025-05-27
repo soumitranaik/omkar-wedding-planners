@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
+import { FaPhone, FaPhoneAlt } from 'react-icons/fa'
+import { FaPhoneFlip } from 'react-icons/fa6'
 
 export const Footer = () => {
   return (
@@ -19,7 +21,7 @@ export const Footer = () => {
                 </li>
             
                 <li>
-                    <a href="#location" className="hover:underline">Contact</a>
+                    <a href="tel:9822483117" className="hover:underline inline-flex items-center" ><FaPhoneAlt /> &nbsp; 9822483117</a>
                 </li>
             </ul>
         </div>
