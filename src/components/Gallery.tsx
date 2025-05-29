@@ -18,9 +18,9 @@ const SkeletonStage = () => {
       </p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Elevate your wedding with stunning stage & mandap decor—luxe fabrics,
-        floral cascades, and enchanting lighting for a picture-perfect backdrop.
-        Traditional elegance or modern glam, tailored to your dream vision.
+        Create the perfect backdrop for your sacred vows with elegant mandap and stage decorations that reflect your style and traditions. Our designs range from classic floral arrangements with roses and jasmine to modern setups with graceful draping and ambient lighting.
+Choose from traditional wooden mandaps adorned with fresh blooms, contemporary crystal and fabric designs, or grand stages with intricate backdrops. We incorporate meaningful elements like sacred fire pits, decorative pillars, and ornate canopies that frame your ceremony perfectly.
+Every setup is customized to your venue and vision, ensuring your wedding stage becomes the focal point where your new journey begins.
       </p>
     </div>
   );
@@ -66,10 +66,9 @@ const SkeletonHaldi = () => {
       </p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Brighten your pre-wedding rituals with our vibrant haldi and mehndi
-        setups. We design cheerful spaces with fresh marigold chandeliers,
-        turmeric-dipped floral hangings, and low seating adorned in pastel
-        linens—blending tradition with Instagram-worthy aesthetics.
+        Transform your pre-wedding celebrations with beautiful, traditional setups that honor these cherished rituals. Our Haldi ceremonies feature vibrant yellow and orange decorations with fresh marigold flowers, banana leaves, and comfortable seating arrangements where family can gather to apply the sacred turmeric paste.
+For Mehndi celebrations, we create cozy, colorful spaces with low seating, bright cushions, and canopies draped in rich fabrics. Fresh flower arrangements, traditional brass items, and ambient lighting set the perfect mood for intricate henna application and joyful celebrations with your closest friends and family.
+We handle all the details—from backdrop decorations to comfortable seating arrangements—so you can focus on enjoying these meaningful traditions. Each setup is designed to create beautiful photo opportunities while keeping the authentic spirit of these beloved ceremonies.
       </p>
     </div>
   );
@@ -80,9 +79,17 @@ const SkeletonPuja = () => {
       <p className="font-bold md:text-4xl text-xl text-white">Puja Samagri</p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Honor tradition with sacred puja samagri—carefully arranged for every
-        wedding ritual. From fresh flowers to holy threads, we provide all
-        essentials to ensure ceremonies flow with devotion and authenticity.{" "}
+        Honor your wedding traditions with our complete collection of sacred
+        puja samagri, thoughtfully prepared and beautifully arranged for every
+        meaningful ritual throughout your special day. We provide all the
+        essential items your ceremonies require, from vibrant fresh flowers like
+        marigolds and roses to sacred red threads, pure ghee, fragrant incense,
+        colorful rangoli powders, blessed rice, and traditional brass items.
+        Each element is carefully selected for its spiritual significance and
+        arranged with respect for ancient customs. Our experienced team
+        understands the importance of authenticity in your wedding rituals,
+        ensuring that every item meets traditional standards while being
+        perfectly timed for your ceremony.
       </p>
     </div>
   );
@@ -95,14 +102,13 @@ const SkeletonScreen = () => {
       </p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Our large-scale displays transform wedding receptions into
-        breathtaking spectacles. Synchronized fireworks erupt in perfect harmony
-        with your first dance, while dazzling flame effects and low-lying fog
-        create mesmerizing visuals across your venue. High-resolution projection
-        mapping turns walls and ceilings into dynamic canvases, amplifying every
-        special moment with stunning visual impact. All systems are
-        professionally engineered for seamless integration with your event
-        timeline and venue specifications.
+        Our big screens and displays make your wedding and reception absolutely
+        magical. We time fireworks to go off perfectly with your first dance,
+        and add beautiful flame effects and smooth fog that flows across your
+        venue. We can also project amazing images onto your walls and ceilings,
+        turning them into moving works of art that make every special moment
+        even more incredible. Everything is set up by professionals to work
+        smoothly with your wedding schedule and fit perfectly in your venue.
       </p>
     </div>
   );
@@ -115,11 +121,17 @@ const SkeletonPyro = () => {
         Pyros, Smoke Shots, Confetti & Fireworks{" "}
       </p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Think fire-breathing entrances, smoke so thick your first dance looks
-        like a movie scene, and fireworks that actually justify the rental
-        price. We handle the permits, you get the gasps. No venue restrictions,
-        no half-baked sparklers—just pyro that makes your wedding look like the
-        main event.
+        Light up your celebration with stunning special effects that create
+        unforgettable moments. Our professional pyrotechnics add dramatic bursts
+        of color and excitement to your biggest moments—from your entrance to
+        the grand finale. Colorful smoke shots create dreamy, romantic backdrops
+        perfect for photos and dancing. Confetti cannons shower guests with
+        biodegradable petals or streamers during your kiss, cake cutting, or
+        exit. Fireworks displays light up the night sky with beautiful patterns
+        that guests will remember forever. All effects are handled by certified
+        professionals with full safety measures. We time everything perfectly
+        with your photographer and venue to create those magical wow moments
+        that make your wedding truly special.
       </p>
     </div>
   );
@@ -132,9 +144,9 @@ const SkeletonDrone = () => {
       </p>
 
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Drone coverage adds WOW-factor to your album—think golden-hour portraits
-        from above, confetti explosions in 360°, and venue flyovers that’ll give
-        you chills
+        Capture your wedding from stunning aerial perspectives that showcase the full beauty of your celebration. Our professional drone photography creates breathtaking shots of your venue, ceremony setup, and guest arrangements from above.
+Get dramatic footage of your grand entrance, outdoor ceremonies, and reception festivities that traditional cameras simply can't achieve. Perfect for destination weddings, garden venues, and creating cinematic moments that wow your guests.
+All flights are operated by licensed pilots following safety regulations, ensuring beautiful results without disrupting your special day.
       </p>
     </div>
   );
@@ -162,14 +174,14 @@ const cards = [
     className: "col-span-1",
     thumbnail: "/images/light-show.jpg",
   },
-   {
+  {
     id: 4,
     content: <SkeletonEntry />,
     title: "Reception, Photo-Booth & Grand Entry",
     className: "md:col-span-2",
     thumbnail: "/images/entrance-white.jpg",
   },
-   {
+  {
     id: 5,
     content: <SkeletonScreen />,
     title: "Large Screen Display",
@@ -191,12 +203,11 @@ const cards = [
     className: "md:col-span-1",
     thumbnail: "/images/pyro.jpg",
   },
-   {
+  {
     id: 8,
     content: <SkeletonHaldi />,
     title: "Haldi & Mehndi Setup",
     className: "md:col-span-2",
     thumbnail: "/images/haldi.jpg",
   },
- 
 ];

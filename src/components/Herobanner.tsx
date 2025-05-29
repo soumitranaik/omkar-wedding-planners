@@ -6,7 +6,6 @@ import { BackgroundGradientCards } from "./GradientCards";
 import { FiPhoneCall } from "react-icons/fi";
 import Link from "next/link";
 
-
 export function HeroSectionOne() {
   return (
     <div className="relative w-full bg-neutral-50">
@@ -73,10 +72,16 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <Link href={"#features"} className="text-center w-60 transform rounded-lg bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900">
+            <Link
+              href={"#features"}
+              className="text-center w-60 transform rounded-lg bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900"
+            >
               Explore Features
             </Link>
-            <Link href={"tel:9822483117"} className="text-center w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 ">
+            <Link
+              href={"tel:9822483117"}
+              className="text-center w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 "
+            >
               Call Now
             </Link>
           </motion.div>
@@ -95,24 +100,37 @@ export function HeroSectionOne() {
             }}
             className="relative z-10 mt-20 rounded-3xl border border-red-800 bg-rose-50 p-4 shadow-md"
           >
-            <div className="w-full h-auto overflow-hidden rounded-xl px-8 md:px-16 py-20 border bg-white border-rose-50 text-center" id="about">
-              <div className="flex flex-col items-center justify-center"><h2 className="text-4xl font-bold py-4 text-neutral-800">About Us</h2>
-              <p className="py-4 text-neutral-800">
-                At Omkar's Wedding Planners, we specialize in creating unforgettable weddings and
-                vibrant events. Our expert team blends tradition with innovation
-                to craft seamless, joyous celebrations that leave lasting
-                memories. Let us bring your dream event to life!
-                <br /><br />
-                From intimate gatherings to grand weddings, we handle every
-                detail with precision and passion—stunning decor, flawless
-                coordination, and personalized touches that reflect your unique
-                love story. Let us transform your vision into reality, ensuring
-                a stress-free experience from the first consultation to the
-                final farewell. Your dream celebration starts with Omkar's Wedding Planners.
-              </p>
-              <Link href={"tel:9822483117"} className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900 ">
-                <FiPhoneCall /> Call Now
-              </Link>
+            <div
+              className="w-full h-auto overflow-hidden rounded-xl px-8 md:px-16 py-20 border bg-white border-rose-50 text-center"
+              id="about"
+            >
+              <div className="flex flex-col items-center justify-center">
+                <h2 className="text-4xl font-bold py-4 text-neutral-800">
+                  About Us
+                </h2>
+                <p className="py-4 text-neutral-800">
+                  At Omkar's Wedding Planners, we specialize in creating
+                  unforgettable weddings and vibrant events. Our expert team
+                  blends tradition with innovation to craft seamless, joyous
+                  celebrations that leave lasting memories. Let us bring your
+                  dream event to life!
+                  <br />
+                  <br />
+                  At Omkar’s Wedding Planners, everything you need is under one
+                  roof—so you won’t have to go anywhere else. From intimate
+                  gatherings to grand weddings, we handle every detail with
+                  precision and passion: stunning décor, flawless coordination,
+                  and personalized touches that reflect your unique love story.
+                  Let us transform your vision into reality and ensure a
+                  stress-free experience from the first consultation to the
+                  final farewell.
+                </p>
+                <Link
+                  href={"tel:9822483117"}
+                  className="w-60 my-4 flex items-center justify-center gap-2  transform rounded-lg border border-gray-300 bg-red-800 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900 "
+                >
+                  <FiPhoneCall /> Call Now
+                </Link>
               </div>
               <BackgroundGradientCards />
             </div>
