@@ -18,9 +18,16 @@ const SkeletonStage = () => {
       </p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Create the perfect backdrop for your sacred vows with elegant mandap and stage decorations that reflect your style and traditions. Our designs range from classic floral arrangements with roses and jasmine to modern setups with graceful draping and ambient lighting.
-Choose from traditional wooden mandaps adorned with fresh blooms, contemporary crystal and fabric designs, or grand stages with intricate backdrops. We incorporate meaningful elements like sacred fire pits, decorative pillars, and ornate canopies that frame your ceremony perfectly.
-Every setup is customized to your venue and vision, ensuring your wedding stage becomes the focal point where your new journey begins.
+        Create the perfect backdrop for your sacred vows with elegant mandap and
+        stage decorations that reflect your style and traditions. Our designs
+        range from classic floral arrangements with roses and jasmine to modern
+        setups with graceful draping and ambient lighting. Choose from
+        traditional wooden mandaps adorned with fresh blooms, contemporary
+        crystal and fabric designs, or grand stages with intricate backdrops. We
+        incorporate meaningful elements like sacred fire pits, decorative
+        pillars, and ornate canopies that frame your ceremony perfectly. Every
+        setup is customized to your venue and vision, ensuring your wedding
+        stage becomes the focal point where your new journey begins.
       </p>
     </div>
   );
@@ -66,9 +73,20 @@ const SkeletonHaldi = () => {
       </p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Transform your pre-wedding celebrations with beautiful, traditional setups that honor these cherished rituals. Our Haldi ceremonies feature vibrant yellow and orange decorations with fresh marigold flowers, banana leaves, and comfortable seating arrangements where family can gather to apply the sacred turmeric paste.
-For Mehndi celebrations, we create cozy, colorful spaces with low seating, bright cushions, and canopies draped in rich fabrics. Fresh flower arrangements, traditional brass items, and ambient lighting set the perfect mood for intricate henna application and joyful celebrations with your closest friends and family.
-We handle all the details—from backdrop decorations to comfortable seating arrangements—so you can focus on enjoying these meaningful traditions. Each setup is designed to create beautiful photo opportunities while keeping the authentic spirit of these beloved ceremonies.
+        Transform your pre-wedding celebrations with beautiful, traditional
+        setups that honor these cherished rituals. Our Haldi ceremonies feature
+        vibrant yellow and orange decorations with fresh marigold flowers,
+        banana leaves, and comfortable seating arrangements where family can
+        gather to apply the sacred turmeric paste. For Mehndi celebrations, we
+        create cozy, colorful spaces with low seating, bright cushions, and
+        canopies draped in rich fabrics. Fresh flower arrangements, traditional
+        brass items, and ambient lighting set the perfect mood for intricate
+        henna application and joyful celebrations with your closest friends and
+        family. We handle all the details—from backdrop decorations to
+        comfortable seating arrangements—so you can focus on enjoying these
+        meaningful traditions. Each setup is designed to create beautiful photo
+        opportunities while keeping the authentic spirit of these beloved
+        ceremonies.
       </p>
     </div>
   );
@@ -144,9 +162,15 @@ const SkeletonDrone = () => {
       </p>
 
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Capture your wedding from stunning aerial perspectives that showcase the full beauty of your celebration. Our professional drone photography creates breathtaking shots of your venue, ceremony setup, and guest arrangements from above.
-Get dramatic footage of your grand entrance, outdoor ceremonies, and reception festivities that traditional cameras simply can't achieve. Perfect for destination weddings, garden venues, and creating cinematic moments that wow your guests.
-All flights are operated by licensed pilots following safety regulations, ensuring beautiful results without disrupting your special day.
+        Capture your wedding from stunning aerial perspectives that showcase the
+        full beauty of your celebration. Our professional drone photography
+        creates breathtaking shots of your venue, ceremony setup, and guest
+        arrangements from above. Get dramatic footage of your grand entrance,
+        outdoor ceremonies, and reception festivities that traditional cameras
+        simply can't achieve. Perfect for destination weddings, garden venues,
+        and creating cinematic moments that wow your guests. All flights are
+        operated by licensed pilots following safety regulations, ensuring
+        beautiful results without disrupting your special day.
       </p>
     </div>
   );
