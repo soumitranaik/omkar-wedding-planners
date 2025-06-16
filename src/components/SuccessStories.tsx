@@ -42,9 +42,13 @@ const content = [
       "Over the years, we’ve had the distinct honor of serving some of Goa’s most influential personalities during the most important celebrations of their lives—their weddings. From luxurious beachfront ceremonies to elegant heritage venues, our culinary team has been part of unforgettable experiences, crafting personalized menus that reflect tradition, taste, and a touch of modern flair. Each event is a testament to our dedication to quality, flavor, and flawless execution. We’re proud that our service and food have earned the trust of Goa’s top names — politicians, entrepreneurs, and public figures—who continue to choose us when it matters most. Your celebration deserves nothing less."
 ,
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-Fueling Champions at Fatorda
-      </div>
+      <Image
+          src="/images/elite.jpg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
     ),
   }
 ];
