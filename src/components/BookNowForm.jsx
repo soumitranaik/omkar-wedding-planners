@@ -1,4 +1,3 @@
-"use client";
 import { label } from "motion/react-client";
 import { useState } from "react";
 
