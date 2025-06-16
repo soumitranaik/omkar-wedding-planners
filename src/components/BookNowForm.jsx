@@ -105,7 +105,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
 
           {/* Modal Body - Your Form */}
           <div className="p-6">
-            <form method="POST" name="contact" data-netlify="true" onSubmit="submit" className="space-y-4">
+            <form method="POST" name="contact" data-netlify="true" className="space-y-4">
               <div>
                 <input type="hidden" name="form-name" value="contact" />  
                 <label
@@ -174,7 +174,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                     <input
                       type="checkbox"
                       id="services"
-                      name="services"
+                      name="services[]"
                       value={service.id}
                       onChange={handleChange}
                       className="px-4 py-2 border border-gray-300 accent-red-800 rounded-md focus:outline-none "
