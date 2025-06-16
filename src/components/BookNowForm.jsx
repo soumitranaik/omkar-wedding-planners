@@ -1,4 +1,5 @@
 "use client";
+import { label } from "motion/react-client";
 import { useState } from "react";
 
 export const ContactModal = ({ isOpen, onClose }) => {
@@ -26,7 +27,23 @@ export const ContactModal = ({ isOpen, onClose }) => {
      {
       id: "Large Screen Display",
       label: "Large Screen Display",
-    }
+    },
+    {
+      id: "Floral & Decoration",
+      label: "Floral & Decoration",
+    },
+     {
+      id: "Corporate Event",
+      label: "Corporate Event",
+    },
+     {
+      id: "Sports Event",
+      label: "Sports Event",
+    },
+     {
+      id: "Complete Event",
+      label: "Complete Event",
+    },
   ];
 
   const [formData, setFormData] = useState({
@@ -89,8 +106,9 @@ export const ContactModal = ({ isOpen, onClose }) => {
 
           {/* Modal Body - Your Form */}
           <div className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form method="POST" name="contact" data-netlify="true" onSubmit="submit" className="space-y-4">
               <div>
+                <input type="hidden" name="form-name" value="contact" />  
                 <label
                   htmlFor="name"
                   className="block text-md font-medium text-gray-700 mb-1"

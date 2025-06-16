@@ -4,6 +4,7 @@ import { WeddingFeatures } from "@/components/Features";
 import { Gallery } from "@/components/Gallery";
 import { Location } from "@/components/Location";
 import { FloatingButtons } from "@/components/Floating";
+import { SuccessStories } from "@/components/SuccessStories";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSectionOne />
       <WeddingFeatures />
       <Gallery />
+      <SuccessStories />
       <Testimonials />
       <Location />
       <FloatingButtons />
