@@ -75,7 +75,6 @@ export const ContactModal = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Modal Backdrop */}
-
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         {/* Modal Container */}
         <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
@@ -86,7 +85,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
             </h3>
             <button
               onClick={onClose}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-gray-500 hover:text-gray-700 "
             >
               <svg
                 className="w-6 h-6"
