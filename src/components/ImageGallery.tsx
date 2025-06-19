@@ -235,7 +235,7 @@ const Gallery = ({ images = [] }) => {
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 z-20 min-h-[400px] min-w-[300px]">
                     <div className="flex flex-col items-center space-y-4">
                       <FaSpinner className="animate-spin text-white text-6xl" />
-                      <p className="text-white text-lg">Loading video...</p>
+                      <p className="text-white text-lg">Buffering...</p>
                     </div>
                   </div>
                 )}

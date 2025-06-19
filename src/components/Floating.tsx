@@ -7,6 +7,8 @@ import {
   IconMail,
   IconPhoneCalling
 } from "@tabler/icons-react";
+import { FaFacebook } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
 
 export function FloatingButtons() {
   const links = [
@@ -31,6 +33,13 @@ export function FloatingButtons() {
         <IconPhoneCalling className="h-full w-full text-rose-800 " />
       ),
       href: "tel:9822483117",
+    },
+     {
+      title: "Facebook",
+      icon: (
+        <FiFacebook  className="h-full w-full text-rose-800 " />
+      ),
+      href: "https://www.facebook.com/Omkarevents33/",
     }
   ];
   return (
