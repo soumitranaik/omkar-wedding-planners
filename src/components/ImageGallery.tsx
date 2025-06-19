@@ -51,10 +51,27 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
       vidsrc: "/videos/entrance-vidhi.webm",
       alt: "Entrance, Vidhi Mandap & Stage",
       title: "Entrance, Vidhi Mandap & Stage"
+    },
+     {
+      src: "/images/buffet2.jpeg",
+      alt: "Buffet Setup",
+      title: "Buffet Setup"
+    },
+     {
+      src: "/images/jatra.jpeg",
+      alt: "Jatra",
+      title: "Temple Decoration"
+    },
+     {
+      src: "/images/puja.jpeg",
+      alt: "Puja",
+      title: "Puja Decoration"
     }
   ];
 
   const galleryImages = images.length > 0 ? images : sampleImages;
+
+  const galleryImages8 = sampleImages.slice(0,8);
 
   const openModal = (image : any, index : number) => {
     setSelectedImage(image);
@@ -93,7 +110,7 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
 
       {/* Gallery Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {galleryImages.map((image, index) => (
+        {galleryImages8.map((image, index) => (
           <div
             key={index}
             className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer aspect-square"
