@@ -1,18 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { BiCross } from "react-icons/bi";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaCross,
-  FaPlay,
-  FaSpinner,
-  FaTruckLoading,
-} from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowLeft, FaArrowRight, FaPlay, FaSpinner } from "react-icons/fa";
 import Image from "next/image";
 import { FaX } from "react-icons/fa6";
-import { div } from "motion/react-client";
 
 const Gallery = ({ images = [] }) => {
   const [selectedImage, setSelectedImage] = useState<{
@@ -23,7 +14,40 @@ const Gallery = ({ images = [] }) => {
   } | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoref = useRef<HTMLVideoElement>(null);
-  const [isVideoLoading, setVideoLoading] = useState(true);
+  const [isVideoLoading, setVideoLoading] = useState(false);
+
+  // Reset loading state when video source changes
+  useEffect(() => {
+    if (selectedImage?.vidsrc) {
+      setVideoLoading(true);
+    }
+  }, [selectedImage?.vidsrc]);
+
+  // Setup video event listeners
+  useEffect(() => {
+    const video = videoref.current;
+    if (!video || !selectedImage?.vidsrc) return;
+
+    const handleLoadStart = () => setVideoLoading(true);
+    const handleCanPlay = () => setVideoLoading(false);
+    const handleLoadedData = () => setVideoLoading(false);
+    const handleWaiting = () => setVideoLoading(true);
+    const handleError = () => setVideoLoading(false);
+
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('waiting', handleWaiting);
+    video.addEventListener('error', handleError);
+
+    return () => {
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('waiting', handleWaiting);
+      video.removeEventListener('error', handleError);
+    };
+  }, [selectedImage?.vidsrc]);
 
   // Sample images - replace with your own
   const sampleImages = [
@@ -85,16 +109,17 @@ const Gallery = ({ images = [] }) => {
   ];
 
   const galleryImages = images.length > 0 ? images : sampleImages;
-
   const galleryImages8 = sampleImages.slice(0, 8);
 
   const openModal = (image: any, index: number) => {
     setSelectedImage(image);
     setCurrentIndex(index);
+    // Don't set loading here - let the useEffect handle it
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+    setVideoLoading(false);
   };
 
   const nextImage = () => {
@@ -150,7 +175,7 @@ const Gallery = ({ images = [] }) => {
             )}
 
             {image.vidsrc && (
-              <div className="absolute inset-0  group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center">
                   <FaPlay />
                 </div>
@@ -198,29 +223,34 @@ const Gallery = ({ images = [] }) => {
             <FaArrowRight size={40} />
           </button>
 
-          {/* Image container */}
+          {/* Image/Video container */}
           <div
             className="relative max-w-8xl max-h-full"
             onClick={(e) => e.stopPropagation()}
           >
             {selectedImage.vidsrc ? (
-              isVideoLoading ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <FaSpinner className="animate-spin text-white text-4xl" />
-                </div>
-              ) : (
+              <div className="relative">
+                {/* Loading Spinner Overlay */}
+                {isVideoLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 z-20 min-h-[400px] min-w-[300px]">
+                    <div className="flex flex-col items-center space-y-4">
+                      <FaSpinner className="animate-spin text-white text-6xl" />
+                      <p className="text-white text-lg">Loading video...</p>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Video Element */}
                 <video
-                ref={videoref}
+                  ref={videoref}
                   src={selectedImage.vidsrc}
-                  className=" h-[80%] max-w-[480px] object-contain"
+                  className="h-[80vh] max-w-[480px] object-contain"
                   autoPlay
                   muted
                   controls
-                  onCanPlay={() => setVideoLoading(false)}
-                  onWaiting={() => setVideoLoading(true)}
-                  onError={() => setVideoLoading(false)}
+                  preload="metadata"
                 />
-              )
+              </div>
             ) : (
               <Image
                 src={selectedImage.src ?? ""}
@@ -231,15 +261,17 @@ const Gallery = ({ images = [] }) => {
               />
             )}
 
-            {/* Image info */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 pb-18 rounded-b-lg">
-              <h3 className="text-white text-xl font-semibold mb-1">
-                {selectedImage.title}
-              </h3>
-              <p className="text-gray-300 text-sm">
-                {currentIndex + 1} of {galleryImages.length}
-              </p>
-            </div>
+            {/* Image/Video info */}
+            {!isVideoLoading && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 pb-18 rounded-b-lg">
+                <h3 className="text-white text-xl font-semibold mb-1">
+                  {selectedImage.title}
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  {currentIndex + 1} of {galleryImages.length}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Thumbnail strip */}
