@@ -2,53 +2,55 @@
 
 import { useState } from 'react';
 import { BiCross } from 'react-icons/bi';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaCross, FaPlay } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaX } from 'react-icons/fa6';
 
 const Gallery = ({ images = [] }) => {
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null);
+const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; title: string ; vidsrc?: string} | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Sample images - replace with your own
   const sampleImages = [
     {
-      src: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600",
-      alt: "Wedding decoration with flowers",
-      title: "Elegant Wedding Setup"
+      src: "/images/gallery1.jpeg",
+      alt: "Buffet Setup",
+      title: "Buffet Setup"
     },
     {
-      src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600",
-      alt: "Catering service",
-      title: "Gourmet Catering"
+      src: "/images/stage.jpeg",
+      alt: "Stage & Backdrop",
+      title: "Stage & Backdrop"
     },
     {
-      src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600",
-      alt: "Event photography",
-      title: "Professional Photography"
+      src: "/images/buffet.jpg",
+      alt: "Buffet Setup",
+      title: "Buffet Setup"
     },
     {
-      src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600",
-      alt: "Corporate event",
+      vidsrc: "/videos/full-wedding.mp4",
+      alt: "Full Wedding Setup",
+      title: "Full Wedding Setup"
+    },
+    {
+      src: "/images/corporate.jpeg",
+      alt: "Corporate Event",
       title: "Corporate Event"
     },
     {
-      src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600",
-      alt: "Birthday party setup",
-      title: "Birthday Celebration"
+      vidsrc: "/videos/full-wedding-setup.webm",
+      alt: "Wedding Setup Video",
+      title: "Wedding Setup Video"
     },
     {
-      src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600",
-      alt: "Wedding cake",
-      title: "Custom Wedding Cake"
+      vidsrc: "/videos/buffet-setup.mp4",
+      alt: "Buffet Setup Video",
+      title: "Buffet Setup Video"
     },
     {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600",
-      alt: "Event decoration",
-      title: "Floral Arrangements"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600",
-      alt: "Outdoor event",
-      title: "Outdoor Wedding"
+      vidsrc: "/videos/entrance-vidhi.webm",
+      alt: "Entrance, Vidhi Mandap & Stage",
+      title: "Entrance, Vidhi Mandap & Stage"
     }
   ];
 
@@ -66,7 +68,7 @@ const Gallery = ({ images = [] }) => {
   const nextImage = () => {
     const nextIndex = (currentIndex + 1) % galleryImages.length;
     setCurrentIndex(nextIndex);
-    setSelectedImage(galleryImages[nextIndex]);
+    setSelectedImage(galleryImages[nextIndex] ?? null);
   };
 
   const prevImage = () => {
@@ -96,19 +98,30 @@ const Gallery = ({ images = [] }) => {
             key={index}
             className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer aspect-square"
             onClick={() => openModal(image, index)}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
+          > 
+          { image.vidsrc ? (
+            <video
+              src={image.vidsrc}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
+          ) : (
+            <Image
+              src={image.src ?? ""}
+              alt={image.alt}
+              width={200}
+              height={200}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          )}
             
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/20 bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-              <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                <h3 className="text-lg font-semibold mb-1">{image.title}</h3>
+            { image.vidsrc && (
+              <div className="absolute inset-0  group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+              <div className="text-white text-center">
+                <FaPlay />
               </div>
             </div>
+            )}
+            
           </div>
         ))}
       </div>
@@ -126,7 +139,7 @@ const Gallery = ({ images = [] }) => {
             onClick={closeModal}
             className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
           >
-            <BiCross size={32} />
+            <FaX size={32} />
           </button>
 
           {/* Previous button */}
@@ -153,17 +166,28 @@ const Gallery = ({ images = [] }) => {
 
           {/* Image container */}
           <div
-            className="relative max-w-4xl max-h-full"
+            className="relative max-w-8xl max-h-full"
             onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage.src}
+          >{ selectedImage.vidsrc ? (
+                  <video
+                    src={selectedImage.vidsrc}
+                    className="w-full h-full max-w-[480px] object-contain"
+                    autoPlay
+                    muted
+                  />
+                ) : (
+                   <Image
+              src={selectedImage.src ?? ""}
               alt={selectedImage.alt}
+              width={750}
+              height={750}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
+                )}
+           
             
             {/* Image info */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-lg">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 pb-18 rounded-b-lg">
               <h3 className="text-white text-xl font-semibold mb-1">
                 {selectedImage.title}
               </h3>
@@ -187,11 +211,20 @@ const Gallery = ({ images = [] }) => {
                   setSelectedImage(galleryImages[index]);
                 }}
               >
-                <img
-                  src={image.src}
+                { image.vidsrc ? (
+                  <video
+                    src={image.vidsrc}
+                    className="w-full h-full object-cover"
+                    
+                  />
+                ) : (<Image
+                  src={image.src ?? ""}
                   alt={image.alt}
+                  width={200}
+                  height={200}
                   className="w-full h-full object-cover"
-                />
+                />)}
+                
               </div>
             ))}
           </div>
