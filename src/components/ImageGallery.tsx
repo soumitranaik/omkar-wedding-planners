@@ -1,79 +1,94 @@
-"use client"
+"use client";
 
-import { useState } from 'react';
-import { BiCross } from 'react-icons/bi';
-import { FaArrowLeft, FaArrowRight, FaCross, FaPlay } from 'react-icons/fa';
-import Image from 'next/image';
-import { FaX } from 'react-icons/fa6';
+import { useRef, useState } from "react";
+import { BiCross } from "react-icons/bi";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCross,
+  FaPlay,
+  FaSpinner,
+  FaTruckLoading,
+} from "react-icons/fa";
+import Image from "next/image";
+import { FaX } from "react-icons/fa6";
+import { div } from "motion/react-client";
 
 const Gallery = ({ images = [] }) => {
-const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; title: string ; vidsrc?: string} | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{
+    src?: string;
+    alt: string;
+    title: string;
+    vidsrc?: string;
+  } | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const videoref = useRef<HTMLVideoElement>(null);
+  const [isVideoLoading, setVideoLoading] = useState(true);
 
   // Sample images - replace with your own
   const sampleImages = [
     {
       src: "/images/gallery1.jpeg",
       alt: "Buffet Setup",
-      title: "Buffet Setup"
+      title: "Buffet Setup",
     },
     {
       src: "/images/stage.jpeg",
       alt: "Stage & Backdrop",
-      title: "Stage & Backdrop"
+      title: "Stage & Backdrop",
     },
     {
       src: "/images/buffet.jpg",
       alt: "Buffet Setup",
-      title: "Buffet Setup"
+      title: "Buffet Setup",
     },
     {
       vidsrc: "/videos/full-wedding.mp4",
       alt: "Full Wedding Setup",
-      title: "Full Wedding Setup"
+      title: "Full Wedding Setup",
     },
     {
       src: "/images/corporate.jpeg",
       alt: "Corporate Event",
-      title: "Corporate Event"
+      title: "Corporate Event",
     },
     {
       vidsrc: "/videos/full-wedding-setup.webm",
       alt: "Wedding Setup Video",
-      title: "Wedding Setup Video"
+      title: "Wedding Setup Video",
     },
     {
       vidsrc: "/videos/buffet-setup.mp4",
       alt: "Buffet Setup Video",
-      title: "Buffet Setup Video"
+      title: "Buffet Setup Video",
     },
     {
       vidsrc: "/videos/entrance-vidhi.webm",
       alt: "Entrance, Vidhi Mandap & Stage",
-      title: "Entrance, Vidhi Mandap & Stage"
+      title: "Entrance, Vidhi Mandap & Stage",
     },
-     {
+    {
       src: "/images/buffet2.jpeg",
       alt: "Buffet Setup",
-      title: "Buffet Setup"
+      title: "Buffet Setup",
     },
-     {
+    {
       src: "/images/jatra.jpeg",
       alt: "Jatra",
-      title: "Temple Decoration"
+      title: "Temple Decoration",
     },
-     {
+    {
       src: "/images/puja.jpeg",
       alt: "Puja",
-      title: "Puja Decoration"
-    }
+      title: "Puja Decoration",
+    },
   ];
 
   const galleryImages = images.length > 0 ? images : sampleImages;
 
-  const galleryImages8 = sampleImages.slice(0,8);
+  const galleryImages8 = sampleImages.slice(0, 8);
 
-  const openModal = (image : any, index : number) => {
+  const openModal = (image: any, index: number) => {
     setSelectedImage(image);
     setCurrentIndex(index);
   };
@@ -89,23 +104,26 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
   };
 
   const prevImage = () => {
-    const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    const prevIndex =
+      (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     setCurrentIndex(prevIndex);
     setSelectedImage(galleryImages[prevIndex]);
   };
 
-  const handleKeyDown = (e : any) => {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
+  const handleKeyDown = (e: any) => {
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 pt-16 pb-48" id='gallery'>
+    <div className="w-full max-w-7xl mx-auto p-4 pt-16 pb-48" id="gallery">
       {/* Gallery Header */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-gray-800 mb-2">Gallery</h2>
-        <p className="text-gray-600">Showcasing our finest work and memorable moments</p>
+        <p className="text-gray-600">
+          Showcasing our finest work and memorable moments
+        </p>
       </div>
 
       {/* Gallery Grid */}
@@ -115,30 +133,29 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
             key={index}
             className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer aspect-square"
             onClick={() => openModal(image, index)}
-          > 
-          { image.vidsrc ? (
-            <video
-              src={image.vidsrc}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-          ) : (
-            <Image
-              src={image.src ?? ""}
-              alt={image.alt}
-              width={200}
-              height={200}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-          )}
-            
-            { image.vidsrc && (
-              <div className="absolute inset-0  group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-              <div className="text-white text-center">
-                <FaPlay />
-              </div>
-            </div>
+          >
+            {image.vidsrc ? (
+              <video
+                src={image.vidsrc}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            ) : (
+              <Image
+                src={image.src ?? ""}
+                alt={image.alt}
+                width={200}
+                height={200}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             )}
-            
+
+            {image.vidsrc && (
+              <div className="absolute inset-0  group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <FaPlay />
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -185,24 +202,35 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
           <div
             className="relative max-w-8xl max-h-full"
             onClick={(e) => e.stopPropagation()}
-          >{ selectedImage.vidsrc ? (
-                  <video
-                    src={selectedImage.vidsrc}
-                    className="w-full h-full max-w-[480px] object-contain"
-                    autoPlay
-                    muted
-                  />
-                ) : (
-                   <Image
-              src={selectedImage.src ?? ""}
-              alt={selectedImage.alt}
-              width={750}
-              height={750}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            />
-                )}
-           
-            
+          >
+            {selectedImage.vidsrc ? (
+              isVideoLoading ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <FaSpinner className="animate-spin text-white text-4xl" />
+                </div>
+              ) : (
+                <video
+                ref={videoref}
+                  src={selectedImage.vidsrc}
+                  className=" h-[80%] max-w-[480px] object-contain"
+                  autoPlay
+                  muted
+                  controls
+                  onCanPlay={() => setVideoLoading(false)}
+                  onWaiting={() => setVideoLoading(true)}
+                  onError={() => setVideoLoading(false)}
+                />
+              )
+            ) : (
+              <Image
+                src={selectedImage.src ?? ""}
+                alt={selectedImage.alt}
+                width={750}
+                height={750}
+                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              />
+            )}
+
             {/* Image info */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 pb-18 rounded-b-lg">
               <h3 className="text-white text-xl font-semibold mb-1">
@@ -220,7 +248,9 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
               <div
                 key={index}
                 className={`w-12 h-12 rounded cursor-pointer overflow-hidden border-2 transition-all ${
-                  index === currentIndex ? 'border-white' : 'border-transparent opacity-60 hover:opacity-80'
+                  index === currentIndex
+                    ? "border-white"
+                    : "border-transparent opacity-60 hover:opacity-80"
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -228,20 +258,20 @@ const [selectedImage, setSelectedImage] = useState<{ src?: string; alt: string; 
                   setSelectedImage(galleryImages[index]);
                 }}
               >
-                { image.vidsrc ? (
+                {image.vidsrc ? (
                   <video
                     src={image.vidsrc}
                     className="w-full h-full object-cover"
-                    
                   />
-                ) : (<Image
-                  src={image.src ?? ""}
-                  alt={image.alt}
-                  width={200}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />)}
-                
+                ) : (
+                  <Image
+                    src={image.src ?? ""}
+                    alt={image.alt}
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
             ))}
           </div>
