@@ -42,10 +42,10 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${playfair.variable} ${roboto.variable}`}
       >
-        <ComingSoon />
-        {/* <Navbar />
+        {/* <ComingSoon /> */}
+         <Navbar />
         <div className="w-full">{children}</div>
-        <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
