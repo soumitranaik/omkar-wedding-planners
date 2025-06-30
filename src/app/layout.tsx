@@ -3,8 +3,7 @@ import "./globals.css";
 import { Playfair_Display, Lora, Roboto} from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import ComingSoon from "@/components/ComingSoon";
-
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -42,7 +41,7 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${playfair.variable} ${roboto.variable}`}
       >
-        {/* <ComingSoon /> */}
+<GoogleAnalytics />
          <Navbar />
         <div className="w-full">{children}</div>
         <Footer />
