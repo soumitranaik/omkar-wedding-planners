@@ -1,5 +1,5 @@
 import { label } from "motion/react-client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ContactModal = ({ isOpen, onClose }) => {
   const Services = [
@@ -54,6 +54,36 @@ export const ContactModal = ({ isOpen, onClose }) => {
     additional: "",
   });
 
+  // Load JotForm script when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      // Check if script already exists
+      const existingScript = document.querySelector('script[src*="jotfor.ms"]');
+      if (existingScript) return;
+
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+      script.async = true;
+      
+      script.onload = () => {
+        if (window.jotformEmbedHandler) {
+          window.jotformEmbedHandler(
+            "iframe[id='JotFormIFrame-251804894180057']", 
+            "https://form.jotform.com/"
+          );
+        }
+      };
+
+      document.body.appendChild(script);
+
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, [isOpen]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -75,8 +105,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
     <>
       {/* Modal Backdrop */}
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        {/* Modal Container */}
-        <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+        {/* Modal Container - Made larger for iframe */}
+        <div className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-hidden">
           {/* Modal Header */}
           <div className="flex justify-between items-center p-4 border-b">
             <h3 className="text-xl font-semibold text-red-800">
@@ -102,8 +132,28 @@ export const ContactModal = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Modal Body - Your Form */}
-          <div className="p-6">
+          {/* Modal Body - JotForm Iframe */}
+          <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
+            <iframe
+              id="JotFormIFrame-251804894180057"
+              title="Book Your Services"
+              onLoad={() => window.parent.scrollTo(0, 0)}
+              allowTransparency="true"
+              allow="geolocation; microphone; camera; fullscreen; payment"
+              src="https://form.jotform.com/251804894180057"
+              frameBorder="0"
+              style={{
+                minWidth: '100%',
+                width: '100%',
+                height: '600px',
+                border: 'none'
+              }}
+              scrolling="no"
+            />
+          </div>
+
+          {/* Original Form (Commented out but keeping for reference) */}
+          {/* <div className="p-6">
             <form method="POST" name="contact" data-netlify="true" className="space-y-4">
               <div>
                 <input type="hidden" name="form-name" value="contact" />  
@@ -237,7 +287,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
+          
         </div>
       </div>
     </>
