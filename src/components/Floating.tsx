@@ -45,7 +45,6 @@ export function FloatingButtons() {
   return (
     <div className="z-50 fixed bottom-4 right-4 items-center ">
       <FloatingDock
-        mobileClassName="translate-y-20" // only for demo, remove for production
         items={links}
       />
     </div>
