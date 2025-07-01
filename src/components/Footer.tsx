@@ -21,7 +21,7 @@ export const Footer = () => {
                 </li>
             
                 <li>
-                    <a href="tel:9822483117" className="hover:underline inline-flex items-center" ><FaPhoneAlt /> &nbsp; 9420818805</a>
+                    <a href="tel:9420818805" className="hover:underline inline-flex items-center" ><FaPhoneAlt /> &nbsp; 9420818805</a>
                 </li>
             </ul>
         </div>
